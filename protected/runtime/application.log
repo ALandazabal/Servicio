@@ -25,3 +25,12 @@ Stack trace:
 REQUEST_URI=/servicio/wilpia/Visita.html
 HTTP_REFERER=http://localhost/servicio/wilpia/Visita.html
 ---
+2017/06/20 19:22:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Visita".' in C:\xampp\htdocs\servicio\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#1 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\servicio\wilpia\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/servicio/wilpia/Visita.html
+HTTP_REFERER=http://localhost/servicio/wilpia/
+---
