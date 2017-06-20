@@ -1,5 +1,5 @@
 <?php
 return array (
-  'template' => 'tParametricas',
+  'template' => 'tTransaccionales',
   'baseControllerClass' => 'Controller',
 );
