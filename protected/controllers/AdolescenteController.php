@@ -120,6 +120,12 @@ class AdolescenteController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		if(isset($_GET["reporte"])){
+			$model=Adolescente::model()->findAll();
+			$content=$this->renderPartial('reporte',array('model'=>$model),true);
+			Yii::app()->request->sendFile('reporteAdolescentes.doc',$content);
+		}
+
 		$model=new Adolescente('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Adolescente']))
