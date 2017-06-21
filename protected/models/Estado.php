@@ -65,7 +65,7 @@ class Estado extends CActiveRecord
 	{
 		return array(
 			'idEstado' => 'Id Estado',
-			'descripcionE' => 'Descripcion E',
+			'descripcionE' => 'Descripcion',
 		);
 	}
 
