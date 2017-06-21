@@ -23,7 +23,7 @@
 
 	<div>
 		<?php echo $form->labelEx($model,'fkEstado'); ?>
-		<?php echo $form->textField($model,'fkEstado'); ?>
+		<?php echo $form->dropDownList($model,'Fk_estado',$model->getMenuEstado(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkEstado'); ?>
 	</div>
 

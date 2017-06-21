@@ -37,10 +37,15 @@ $('.search-form form').submit(function(){
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'municipio-grid',
 	'dataProvider'=>$model->search(),
+	'filter'=>$model,
 	'columns'=>array(
 		'idMunicipio',
 		'descripcionM',
 		'fkEstado',
+		array(
+			'name'=>'NombreEstado',
+			'value'=>'$data->fkEstado->NombreEstado'
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),
