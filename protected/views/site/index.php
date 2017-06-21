@@ -4,17 +4,57 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<section class="bg pd4">
+<div class="container center">
+  <div class="row-fluid">
+    <div class="span8">
+          <i style="font-size: 200px" class="icon-credit-card icon-4x"></i>
+          <h2>Heading</h2>
+          <h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse,
+          </h4>
+    </div><!-- /.span4 -->
+    <div class="span4">
+      <div class="well">
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+            <form class="form-signin">
+            <h2 class="form-signin-heading">Login</h2>
+            <?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'login-form',
+			'enableClientValidation'=>true,
+			'clientOptions'=>array(
+				'validateOnSubmit'=>true,
+			),
+		)); ?>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+			<div>
+				<?php echo $form->textField($model,'username',array('class'=>'input-block-level','placeholder'=>'Usuario')); ?>
+				<?php echo $form->error($model,'username'); ?>
+			</div>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+			<div>
+				<?php echo $form->passwordField($model,'password',array('class'=>'input-block-level','placeholder'=>'Contraseña')); ?>
+				<?php echo $form->error($model,'password'); ?>
+			</div>
+
+			<div class="buttons">
+				<?php echo CHtml::submitButton('Login',array('class'=>'btn btn-primary btn-large btn-block')); ?>
+			</div>
+
+		<?php $this->endWidget(); ?>
+          </form>
+
+      </div>
+    </div><!-- /.span4 -->
+  </div><!-- /.row -->
+</div>
+</section>
+
+  <script>
+    !function ($) {
+      $(function(){
+        // carousel demo
+        $('#myCarousel').carousel()
+      })
+    }(window.jQuery)
+  </script>
