@@ -73,12 +73,12 @@ class Visitante extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idVisitante' => 'Id Visitante',
-			'nombreV' => 'Nombre V',
-			'apellidoV' => 'Apellido V',
+			'idVisitante' => 'Visitante',
+			'nombreV' => 'Nombre',
+			'apellidoV' => 'Apellido',
 			'direccion' => 'Direccion',
-			'fkMunicipio' => 'Fk Municipio',
-			'fkNac' => 'Fk Nac',
+			'fkMunicipio' => 'Municipio',
+			'fkNac' => 'Nacionalidad',
 		);
 	}
 
@@ -103,5 +103,26 @@ class Visitante extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function getMenuEstado()
+	{
+		return CHtml::listData(Estado::model()->findAll(),"Id_estado","Descripcion");
+	}
+	/*public function getMenuMunicipio($defaultEstado=19)
+	{
+		return CHtml::listData(Municipio::model()->findAll("Fk_estado=?",array($defaultEstado)),"Id_municipio","Descripcion");
+	}*/
+	public function getMenuMunicipio()
+	{
+		return CHtml::listData(Municipio::model()->findAll(),"idMunicipio","descripcionM");
+	}
+	public function getMenuRol()
+	{
+		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
+	}
+	public function getMenuNac()
+	{
+		return CHtml::listData(Nacionalidad::model()->findAll(),"idNac","descripcionN");
 	}
 }
