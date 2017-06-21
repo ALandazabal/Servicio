@@ -20,6 +20,9 @@ class Adolescente extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Adolescente the static model class
 	 */
+	
+	public $Nationality;
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -46,7 +49,7 @@ class Adolescente extends CActiveRecord
 			array('nombreA, apellidoA', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idAdolescente, nombreA, apellidoA, fkNac', 'safe', 'on'=>'search'),
+			array('idAdolescente, nombreA, apellidoA, fkNac, Nationality', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,10 +72,10 @@ class Adolescente extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idAdolescente' => 'Id Adolescente',
-			'nombreA' => 'Nombre A',
-			'apellidoA' => 'Apellido A',
-			'fkNac' => 'Fk Nac',
+			'idAdolescente' => 'Cedula',
+			'nombreA' => 'Nombre',
+			'apellidoA' => 'Apellido',
+			'fkNac' => 'Nacionalidad',
 		);
 	}
 
@@ -86,14 +89,40 @@ class Adolescente extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$sort=new CSort;
+
+		$sort->defaultOrder='idAdolescente ASC, fkNac0.DescripcionN ASC';
+		$sort->attributes=array(
+			'idAdolescente'=>array(
+				'asc'=>'idAdolescente ASC,
+						fkNac0.Descripcion ASC',
+				'desc'=>'idAdolescente DESC,
+						fkNac0.DescripcionN ASC',
+			),
+			'Nationality'=>array(
+				'asc'=>'fkNac0.DescripcionN ASC,
+						idAdolescente ASC',
+				'desc'=>'fkNac0.DescripcionN DESC,
+						idAdolescente ASC',
+			),
+		);
+
+		$criteria->with = array('fkNac0');
 
 		$criteria->compare('idAdolescente',$this->idAdolescente);
 		$criteria->compare('nombreA',$this->nombreA,true);
 		$criteria->compare('apellidoA',$this->apellidoA,true);
 		$criteria->compare('fkNac',$this->fkNac);
+		$criteria->compare('fkNac0.DescripcionN',$this->Nationality,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>$sort,
 		));
+	}
+
+	public function getMenuNacionalidad()
+	{
+		return CHtml::listData(Nacionalidad::model()->findAll(),"Id_nac","Descripcion");
 	}
 }
