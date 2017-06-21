@@ -57,6 +57,14 @@ class VisitanteController extends Controller
 		));
 	}
 
+	public function actionMunByEst()
+	{
+		$list=Municipio::model()->findAll("Fk_estado=?",array($_POST["Visitante"]["Fk_estado"]));
+		foreach ($list as $data) {
+			echo "<option value=\"{$data->Id_municipio}\">{$data->Descripcion}</option>";
+		}
+	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -124,6 +132,12 @@ class VisitanteController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		if(isset($_GET["reporte"])){
+			$model=Visitante::model()->findAll();
+			$content=$this->renderPartial("reporte",array("model"=>$model),true);
+			Yii::app()->request->sendFile("reporteVisitante.doc",$content);
+		}
+
 		$model=new Visitante('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Visitante']))
