@@ -2,12 +2,9 @@
 /* @var $this AdolescenteController */
 /* @var $model Adolescente */
 
-$this->breadcrumbs=array(
-	'Adolescentes'=>array('admin'),
-);
-
 $this->menu=array(
-	array('label'=>'Create Adolescente', 'url'=>array('create')),
+	array('label'=>'Crear Adolescente', 'url'=>array('create')),
+	array('label'=>'Reporte','url'=>array('admin','reporte'=>1)),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -41,7 +38,11 @@ $('.search-form form').submit(function(){
 		'idAdolescente',
 		'nombreA',
 		'apellidoA',
-		'fkNac',
+		//'fkNac',
+		array(
+			'name'=>'Nationality',//Nombre de la variable creada
+			'value'=>'$data->fkNac->DescripcionN'//Nombres de la db
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

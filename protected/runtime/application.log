@@ -34,3 +34,21 @@ Stack trace:
 REQUEST_URI=/servicio/wilpia/Visita.html
 HTTP_REFERER=http://localhost/servicio/wilpia/
 ---
+2017/06/21 03:06:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "Visita/admin"' in C:\xampp\htdocs\servicio\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita/admin')
+#1 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\servicio\wilpia\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/servicio/wilpia/Visita/admin.html
+HTTP_REFERER=http://localhost/servicio/wilpia/
+---
+2017/06/21 03:06:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "Visita"' in C:\xampp\htdocs\servicio\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#1 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\servicio\wilpia\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/servicio/wilpia/Visita.html
+HTTP_REFERER=http://localhost/servicio/wilpia/Adolescente.html
+---

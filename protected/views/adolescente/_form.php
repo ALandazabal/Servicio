@@ -35,12 +35,12 @@
 
 	<div>
 		<?php echo $form->labelEx($model,'fkNac'); ?>
-		<?php echo $form->textField($model,'fkNac'); ?>
+		<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNacionalidad(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkNac'); ?>
 	</div>
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

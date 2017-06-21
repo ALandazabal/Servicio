@@ -2,10 +2,6 @@
 /* @var $this AdolescenteController */
 /* @var $model Adolescente */
 
-$this->breadcrumbs=array(
-	'Adolescentes'=>array('admin'),
-	$model->idAdolescente,
-);
 
 $this->menu=array(
 	array('label'=>'Create Adolescente', 'url'=>array('create')),
