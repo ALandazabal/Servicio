@@ -19,6 +19,9 @@ class Municipio extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Municipio the static model class
 	 */
+	
+	public $NombreEstado;
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -45,7 +48,7 @@ class Municipio extends CActiveRecord
 			array('descripcionM', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idMunicipio, descripcionM, fkEstado', 'safe', 'on'=>'search'),
+			array('idMunicipio, descripcionM, fkEstado, NombreEstado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,8 +72,8 @@ class Municipio extends CActiveRecord
 	{
 		return array(
 			'idMunicipio' => 'Id Municipio',
-			'descripcionM' => 'Descripcion M',
-			'fkEstado' => 'Fk Estado',
+			'descripcionM' => 'DescripcionM',
+			'fkEstado' => 'Estado',
 		);
 	}
 
@@ -84,13 +87,45 @@ class Municipio extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$sort = new CSort;
+
+		$sort->defaultOrder='DescripcionM ASC, fkEstado0.NombreEstado ASC';
+		$sort->attributes=array(
+			'DescripcionM'=>array(
+				'asc'=>'DescripcionM ASC,
+						fkEstado0.NombreEstado ASC',
+				'desc'=>'DescripcionM DESC,
+						fkEstado.NombreEstado ASC',
+			),
+			'NombreEstado'=>array(
+				'asc'=>'fkEstado0.NombreEstado ASC,
+						DescripcionM ASC',
+				'desc'=>'fkEstado0.NombreEstado DESC,
+						DescripcionM ASC',
+			),
+		);
+
+		$criteria->with = array('fkEstado0');
 
 		$criteria->compare('idMunicipio',$this->idMunicipio);
 		$criteria->compare('descripcionM',$this->descripcionM,true);
 		$criteria->compare('fkEstado',$this->fkEstado);
+		$criteria->compare('fkEstado0.descripcionE',$this->NombreEstado,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>$sort,
 		));
+	}
+
+	public function getMenuEstado()
+	{
+		return CHtml::listData(Estado::model()->findAll(),"idEstado","descripcionE");
+	}
+
+	public function getEstado($idE)
+	{
+		return Estado::model()->findByPk($idE); 
+		//CHtml::listData(Estado::model()->findAll(),"Id_estado","Descripcion");
 	}
 }
