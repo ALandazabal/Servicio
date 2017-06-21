@@ -21,12 +21,16 @@
 	<?php echo CHtml::encode($data->direccion); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('fkMunicipio')); ?>:</b>
-	<?php echo CHtml::encode($data->fkMunicipio); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fkNac')); ?>:</b>
 	<?php echo CHtml::encode($data->fkNac); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('fkEstado')); ?>:</b>
+	<?php echo CHtml::encode($data->fkEstado); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('fkMunicipio')); ?>:</b>
+	<?php echo CHtml::encode($data->fkMunicipio); ?>
 	<br />
 
 

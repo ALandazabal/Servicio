@@ -39,10 +39,33 @@
 		<?php echo $form->error($model,'direccion'); ?>
 	</div>
 
+	<!--Para actualizar los municipios dependiendo del estado que elijan-->
+	<?php 
+		$htmlOptions=array(
+			"ajax" =>array(
+				"url"=>$this->createUrl("munByEst"),
+				"type"=>"POST",
+				"update"=>"#Visitante_Fk_municipio",
+			),
+		 );
+	 ?>
+
+	<div>
+		<?php echo $form->labelEx($model,'fkEstado'); ?>
+		<?php echo $form->dropDownList($model,'fkEstado',$model->getMenuEstado(),$htmlOptions); ?>
+		<?php echo $form->error($model,'fkEstado'); ?>
+	</div>
+
 	<div>
 		<?php echo $form->labelEx($model,'fkMunicipio'); ?>
 		<?php echo $form->textField($model,'fkMunicipio'); ?>
 		<?php echo $form->error($model,'fkMunicipio'); ?>
+	</div>
+
+	<div>
+		<?php echo $form->labelEx($model,'fkRol'); ?>
+		<?php echo $form->dropDownList($model,'fkRol',$model->getMenuParentesco(),array("empty"=>"--")); ?>
+		<?php echo $form->error($model,'fkRol'); ?>
 	</div>
 
 	<div>
@@ -52,7 +75,7 @@
 	</div>
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

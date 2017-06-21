@@ -32,8 +32,18 @@
 	</div>
 
 	<div>
+		<?php echo $form->label($model,'fkEstado'); ?>
+		<?php echo $form->textField($model,'fkEstado'); ?>
+	</div>
+
+	<div>
 		<?php echo $form->label($model,'fkMunicipio'); ?>
 		<?php echo $form->textField($model,'fkMunicipio'); ?>
+	</div>
+
+	<div>
+		<?php echo $form->label($model,'fkRol'); ?>
+		<?php echo $form->textField($model,'fkRol'); ?>
 	</div>
 
 	<div>
@@ -42,7 +52,7 @@
 	</div>
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton('Buscar'); ?>
+		<?php echo CHtml::submitButton('Buscar',array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

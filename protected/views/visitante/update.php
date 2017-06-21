@@ -2,12 +2,6 @@
 /* @var $this VisitanteController */
 /* @var $model Visitante */
 
-$this->breadcrumbs=array(
-	'Visitantes'=>array('admin'),
-	$model->idVisitante=>array('view','id'=>$model->idVisitante),
-	'Update',
-);
-
 $this->menu=array(
 	array('label'=>'Create Visitante', 'url'=>array('create')),
 	array('label'=>'View Visitante', 'url'=>array('view', 'id'=>$model->idVisitante)),
