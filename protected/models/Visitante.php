@@ -44,12 +44,12 @@ class Visitante extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idVisitante, nombreV, apellidoV, direccion, fkMunicipio, fkNac', 'required'),
-			array('idVisitante, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
+			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'required'),
+			array('idVisitante, fkEstado, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
 			array('nombreV, apellidoV, direccion', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idVisitante, nombreV, apellidoV, direccion, fkMunicipio, fkNac', 'safe', 'on'=>'search'),
+			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +77,7 @@ class Visitante extends CActiveRecord
 			'nombreV' => 'Nombre',
 			'apellidoV' => 'Apellido',
 			'direccion' => 'Direccion',
+			'fkEstado' => 'Estado',
 			'fkMunicipio' => 'Municipio',
 			'fkNac' => 'Nacionalidad',
 		);
@@ -97,6 +98,7 @@ class Visitante extends CActiveRecord
 		$criteria->compare('nombreV',$this->nombreV,true);
 		$criteria->compare('apellidoV',$this->apellidoV,true);
 		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('fkEstado',$this->fkEstado);
 		$criteria->compare('fkMunicipio',$this->fkMunicipio);
 		$criteria->compare('fkNac',$this->fkNac);
 
@@ -107,7 +109,7 @@ class Visitante extends CActiveRecord
 
 	public function getMenuEstado()
 	{
-		return CHtml::listData(Estado::model()->findAll(),"Id_estado","Descripcion");
+		return CHtml::listData(Estado::model()->findAll(),"idEstado","descripcionE");
 	}
 	/*public function getMenuMunicipio($defaultEstado=19)
 	{

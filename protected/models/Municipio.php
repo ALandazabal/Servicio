@@ -20,7 +20,7 @@ class Municipio extends CActiveRecord
 	 * @return Municipio the static model class
 	 */
 	
-	public $NombreEstado;
+	public $descripcionE;
 
 	public static function model($className=__CLASS__)
 	{
@@ -48,7 +48,7 @@ class Municipio extends CActiveRecord
 			array('descripcionM', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idMunicipio, descripcionM, fkEstado, NombreEstado', 'safe', 'on'=>'search'),
+			array('idMunicipio, descripcionM, fkEstado, descripcionE', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,19 +89,19 @@ class Municipio extends CActiveRecord
 		$criteria=new CDbCriteria;
 		$sort = new CSort;
 
-		$sort->defaultOrder='DescripcionM ASC, fkEstado0.NombreEstado ASC';
+		$sort->defaultOrder='descripcionM ASC, fkEstado0.descripcionE ASC';
 		$sort->attributes=array(
-			'DescripcionM'=>array(
-				'asc'=>'DescripcionM ASC,
-						fkEstado0.NombreEstado ASC',
-				'desc'=>'DescripcionM DESC,
-						fkEstado.NombreEstado ASC',
+			'descripcionM'=>array(
+				'asc'=>'descripcionM ASC,
+						fkEstado0.descripcionE ASC',
+				'desc'=>'descripcionM DESC,
+						fkEstado.descripcionE ASC',
 			),
-			'NombreEstado'=>array(
-				'asc'=>'fkEstado0.NombreEstado ASC,
-						DescripcionM ASC',
-				'desc'=>'fkEstado0.NombreEstado DESC,
-						DescripcionM ASC',
+			'descripcionE'=>array(
+				'asc'=>'fkEstado0.descripcionE ASC,
+						descripcionM ASC',
+				'desc'=>'fkEstado0.descripcionE DESC,
+						descripcionM ASC',
 			),
 		);
 
@@ -110,7 +110,7 @@ class Municipio extends CActiveRecord
 		$criteria->compare('idMunicipio',$this->idMunicipio);
 		$criteria->compare('descripcionM',$this->descripcionM,true);
 		$criteria->compare('fkEstado',$this->fkEstado);
-		$criteria->compare('fkEstado0.descripcionE',$this->NombreEstado,true);
+		$criteria->compare('fkEstado0.descripcionE',$this->descripcionE,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

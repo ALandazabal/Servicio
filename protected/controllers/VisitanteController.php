@@ -59,9 +59,9 @@ class VisitanteController extends Controller
 
 	public function actionMunByEst()
 	{
-		$list=Municipio::model()->findAll("Fk_estado=?",array($_POST["Visitante"]["Fk_estado"]));
+		$list=Municipio::model()->findAll("fkEstado=?",array($_POST["Visitante"]["fkEstado"]));
 		foreach ($list as $data) {
-			echo "<option value=\"{$data->Id_municipio}\">{$data->Descripcion}</option>";
+			echo "<option value=\"{$data->idMunicipio}\">{$data->descripcionM}</option>";
 		}
 	}
 

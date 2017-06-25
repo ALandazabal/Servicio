@@ -45,7 +45,7 @@
 			"ajax" =>array(
 				"url"=>$this->createUrl("munByEst"),
 				"type"=>"POST",
-				"update"=>"#Visitante_Fk_municipio",
+				"update"=>"#Visitante_fkMunicipio",
 			),
 		 );
 	 ?>
@@ -58,19 +58,13 @@
 
 	<div>
 		<?php echo $form->labelEx($model,'fkMunicipio'); ?>
-		<?php echo $form->textField($model,'fkMunicipio'); ?>
+		<?php echo $form->dropDownList($model,'fkMunicipio',$model->getMenuMunicipio()); ?>
 		<?php echo $form->error($model,'fkMunicipio'); ?>
 	</div>
 
 	<div>
-		<?php echo $form->labelEx($model,'fkRol'); ?>
-		<?php echo $form->dropDownList($model,'fkRol',$model->getMenuParentesco(),array("empty"=>"--")); ?>
-		<?php echo $form->error($model,'fkRol'); ?>
-	</div>
-
-	<div>
 		<?php echo $form->labelEx($model,'fkNac'); ?>
-		<?php echo $form->textField($model,'fkNac'); ?>
+		<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNac(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkNac'); ?>
 	</div>
 

@@ -41,10 +41,9 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'idMunicipio',
 		'descripcionM',
-		'fkEstado',
 		array(
-			'name'=>'NombreEstado',
-			'value'=>'$data->fkEstado->NombreEstado'
+			'name'=>'descripcionE',
+			'value'=>'$data->fkEstado0->descripcionE'
 		),
 		array(
 			'class'=>'CButtonColumn',
