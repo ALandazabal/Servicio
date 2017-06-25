@@ -1361,10 +1361,15 @@ textarea.error,input[type="text"].error,input[type="password"].error,input[type=
 .social i{box-shadow:inset 0px 0px 1px #333;height:25px;width:25px;line-height:25px;margin:0px 5px 0px 0px;border-radius:3px;-webkit-transition:background 1s ease;-moz-transition:background 1s ease;-o-transition:background 1s ease;transition:background 1s ease;text-align:center;}
 body{padding-bottom:0;}
 .footer{color:#eeeeee;}
-.footer-credits{font-size:70%;clear:both;text-align:center;position:relative;text-transform:uppercase;background:#111111;}.footer-credits *{color:#ffffff;color:rgba(255, 255, 255, 0.7);}
+.footer-credits{font-size:70%;clear:both;text-align:center;position:relative; text-transform:uppercase;background:#111111;}.footer-credits *{color:#ffffff;color:rgba(255, 255, 255, 0.7);}
 .footer-credits ul{list-style:none;padding:10px 0;margin:0;position:relative;left:-10px;}
 .footer-credits a,.footer-credits li{text-decoration:none;margin:0;}
 .footer-credits li{display:inline;padding:0 12px 0 8px;border-right:1px solid #ffffff;border-right:1px solid rgba(255, 255, 255, 0.5);}.footer-credits li:first-child{padding-left:0;}
+/*@media (max-height: 800px){
+	.footer-credits{
+		top: 750px;
+	}
+}*/
 .carousel.tii-carousel{margin-bottom:0;}.carousel.tii-carousel .carousel-control{height:80px;margin-top:0;font-size:120px;text-shadow:0 1px 1px rgba(0, 0, 0, 0.4);background-color:transparent;border:0;}
 .carousel.tii-carousel .container{position:relative;z-index:9;}
 .carousel.tii-carousel .item{height:500px;}

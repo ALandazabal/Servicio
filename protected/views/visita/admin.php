@@ -21,7 +21,7 @@ $this->menu=array(
 	'id'=>'visita-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	/*'columns'=>array(
+	'columns'=>array(
 		'fecha',
 		'Fk_usuario',
 		'Fk_visitante',
@@ -36,5 +36,5 @@ $this->menu=array(
 		array(
 			'class'=>'CButtonColumn',
 		),
-	),*/
+	),/**/
 )); ?>

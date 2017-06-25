@@ -67,9 +67,9 @@ class Relacion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'fkRol' => 'Rol',
-			'fkVisitante' => 'Visitante',
-			'fkAdolescente' => 'Adolescente',
+			'fkRol' => 'Fk Rol',
+			'fkVisitante' => 'Fk Visitante',
+			'fkAdolescente' => 'Fk Adolescente',
 		);
 	}
 
