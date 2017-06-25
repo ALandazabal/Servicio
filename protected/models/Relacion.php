@@ -58,6 +58,9 @@ class Relacion extends CActiveRecord
 		return array(
 			'visitas' => array(self::HAS_MANY, 'Visita', 'fkRelVte'),
 			'visitas1' => array(self::HAS_MANY, 'Visita', 'fkRelAdol'),
+			'fkAdolRel'=> array(self::BELONGS_TO, 'Adolescente','fkAdolescente'),
+			'fkVistRel'=> array(self::BELONGS_TO, 'Visitante' 'fkVisitante'),
+			'fkRolRel'=>array(self::BELONGS_TO, 'Rol', 'fkRol'),
 		);
 	}
 
