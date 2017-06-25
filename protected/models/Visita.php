@@ -74,11 +74,11 @@ class Visita extends CActiveRecord
 	{
 		return array(
 			'fecha' => 'Fecha',
-			'h_entrada' => 'Hora Entrada',
-			'h_salida' => 'Hora Salida',
-			'fkUsuario' => 'Usuario',
-			'fkRelVte' => 'Visitante',
-			'fkRelAdol' => 'Adolescente',
+			'h_entrada' => 'H Entrada',
+			'h_salida' => 'H Salida',
+			'fkUsuario' => 'Fk Usuario',
+			'fkRelVte' => 'Fk Rel Vte',
+			'fkRelAdol' => 'Fk Rel Adol',
 		);
 	}
 
@@ -104,7 +104,6 @@ class Visita extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
 	public function getMenuUsuario()
 	{
 		return CHtml::listData(Usuario::model()->findAll(),"idUsuario","idUsuario");

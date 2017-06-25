@@ -1,5 +1,5 @@
 <?php
-/* @var $this VisitaController */
+/* @var $this RelacionController */
 
 $this->menu=array(
 	array('label'=>'Manage Visita', 'url'=>array('admin')),

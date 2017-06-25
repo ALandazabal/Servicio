@@ -1,4 +1,4 @@
-<?
+<?php
 
 class VisitaController extends Controller
 {
@@ -12,7 +12,6 @@ class VisitaController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
 	public function accessRules()
 	{
 		return array(
@@ -37,14 +36,13 @@ class VisitaController extends Controller
 			),
 		);
 	}
-
 	public function actionAdmin()
 	{
-		if (isset($_GET["reporte"])) {
+		/*if (isset($_GET["reporte"])) {
 			$model=Visita::model()->findAll("fecha=?",array(date('Y-m-d')));
 			$content=$this->renderPartial("reporte",array("model"=>$model),true);
 			Yii::app()->request->sendFile("reporteVisita.doc",$content);
-		}			
+		}*/	
 
 		$model=new Visita('search');
 		$model->unsetAttributes();  // clear any default values

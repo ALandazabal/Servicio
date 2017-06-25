@@ -38,13 +38,13 @@
 
 	<div>
 		<?php echo $form->labelEx($model,'fkVisitante'); ?>
-		<?php echo $form->dropDownList($model,'fkVisitante',$model->getMenuVisitante(),array("empty"=>"--")); ?>
+		<?php echo $form->dropDownList($model,'fkRelVte',$model->getMenuVisitante(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkVisitante'); ?>
 	</div>
 
 	<div>
 		<?php echo $form->labelEx($model,'fkAdolescente'); ?>
-		<?php echo $form->dropDownList($model,'fkAdolescente',$model->getMenuAdolescente(),array("empty"=>"--")); ?>
+		<?php echo $form->dropDownList($model,'fkRelAdol',$model->getMenuAdolescente(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkAdolescente'); ?>
 	</div>
 

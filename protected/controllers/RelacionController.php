@@ -1,4 +1,4 @@
-<?
+<?php
 
 class RelacionController extends Controller
 {
@@ -41,11 +41,11 @@ class RelacionController extends Controller
 	public function actionAdmin()
 	{
 		/*if (isset($_GET["reporte"])) {
-			$model=Relacion::model()->findAll("fecha=?",array(date('Y-m-d')));
+			$model=Visita::model()->findAll("fecha=?",array(date('Y-m-d')));
 			$content=$this->renderPartial("reporte",array("model"=>$model),true);
-			Yii::app()->request->sendFile("reporteRelacion.doc",$content);
-		}			
-*/
+			Yii::app()->request->sendFile("reporteVisita.doc",$content);
+		}*/			
+
 		$model=new Relacion('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Relacion']))

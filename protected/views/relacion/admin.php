@@ -1,11 +1,11 @@
 <?php
-/* @var $this VisitaController */
-
+/* @var $this RelacionController */
 
 $this->menu=array(
 	array('label'=>'Create Visita', 'url'=>array('create')),
 	array('label'=>'Reporte', 'url'=>array('admin',"reporte"=>1)),
 );
+
 ?>
 <h1><?php echo $this->id ?></h1>
 
@@ -17,7 +17,7 @@ $this->menu=array(
 </div>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'visita-grid',
+	'id'=>'relacion-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	/*'columns'=>array(
