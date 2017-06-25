@@ -6,9 +6,10 @@ $this->breadcrumbs=array(
 	'Estados'=>array('admin'),
 );
 
-$this->menu=array(
+//Menú para crear un nuevo estado
+/*$this->menu=array(
 	array('label'=>'Create Estado', 'url'=>array('create')),
-);
+);*/
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -26,13 +27,6 @@ $('.search-form form').submit(function(){
 
 <h1>Estados</h1>
 
-<p>
-
-<div class="search-form">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'estado-grid',
@@ -40,8 +34,5 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'idEstado',
 		'descripcionE',
-		array(
-			'class'=>'CButtonColumn',
-		),
 	),
 )); ?>

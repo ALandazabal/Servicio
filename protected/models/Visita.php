@@ -74,11 +74,11 @@ class Visita extends CActiveRecord
 	{
 		return array(
 			'fecha' => 'Fecha',
-			'h_entrada' => 'H Entrada',
-			'h_salida' => 'H Salida',
-			'fkUsuario' => 'Fk Usuario',
-			'fkRelVte' => 'Fk Rel Vte',
-			'fkRelAdol' => 'Fk Rel Adol',
+			'h_entrada' => 'Hora Entrada',
+			'h_salida' => 'Hora Salida',
+			'fkUsuario' => 'Usuario',
+			'fkRelVte' => 'Visitante',
+			'fkRelAdol' => 'Adolescente',
 		);
 	}
 

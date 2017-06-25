@@ -76,6 +76,7 @@ class Adolescente extends CActiveRecord
 			'nombreA' => 'Nombre',
 			'apellidoA' => 'Apellido',
 			'fkNac' => 'Nacionalidad',
+			'Nationality' => 'Nacionalidad',
 		);
 	}
 
@@ -121,8 +122,8 @@ class Adolescente extends CActiveRecord
 		));
 	}
 
-	public function getMenuNacionalidad()
+	public function getMenuNac()
 	{
-		return CHtml::listData(Nacionalidad::model()->findAll(),"Id_nac","Descripcion");
+		return CHtml::listData(Nacionalidad::model()->findAll(),"idNac","descripcionN");
 	}
 }

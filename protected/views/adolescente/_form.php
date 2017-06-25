@@ -35,7 +35,7 @@
 
 	<div>
 		<?php echo $form->labelEx($model,'fkNac'); ?>
-		<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNacionalidad(),array("empty"=>"--")); ?>
+		<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNac()); ?>
 		<?php echo $form->error($model,'fkNac'); ?>
 	</div>
 

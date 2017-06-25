@@ -72,8 +72,9 @@ class Municipio extends CActiveRecord
 	{
 		return array(
 			'idMunicipio' => 'Id Municipio',
-			'descripcionM' => 'DescripcionM',
+			'descripcionM' => 'Municipio',
 			'fkEstado' => 'Estado',
+			'descripcionE' => 'Estado',
 		);
 	}
 

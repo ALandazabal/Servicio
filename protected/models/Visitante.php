@@ -73,7 +73,7 @@ class Visitante extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idVisitante' => 'Visitante',
+			'idVisitante' => 'Cedula',
 			'nombreV' => 'Nombre',
 			'apellidoV' => 'Apellido',
 			'direccion' => 'Direccion',

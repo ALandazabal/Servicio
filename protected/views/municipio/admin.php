@@ -26,13 +26,6 @@ $('.search-form form').submit(function(){
 
 <h1>Municipios</h1>
 
-<p>
-
-<div class="search-form">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'municipio-grid',

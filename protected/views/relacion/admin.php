@@ -7,33 +7,21 @@ $this->menu=array(
 );
 
 ?>
-<h1><?php echo $this->id ?></h1>
+<h1>Relaciones</h1>
 
-<!-- search-form <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>-->
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div>
+
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'relacion-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	/*'columns'=>array(
-		'fecha',
-		'Fk_usuario',
-		'Fk_visitante',
-		'Fk_adolescente',
-		'Telefono',
-		'Fk_estado',
-		
-		'Fk_municipio',
-		'Fk_parentesco',
-		'Fk_nac',
+	'columns'=>array(
+		'fkRol',
+		'fkVisitante',
+		'fkAdolescente',
 		
 		array(
 			'class'=>'CButtonColumn',
 		),
-	),*/
+	),
 )); ?>

@@ -24,19 +24,13 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Nacionalidads</h1>
+<h1>Nacionalidades</h1>
 
-<p>
-
-<div class="search-form">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'nacionalidad-grid',
 	'dataProvider'=>$model->search(),
+	'filter'=>$model,
 	'columns'=>array(
 		'idNacionalidad',
 		'descripcionN',
