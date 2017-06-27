@@ -41,7 +41,7 @@ $('.search-form form').submit(function(){
 		//'fkNac',
 		array(
 			'name'=>'Nationality',//Nombre de la variable creada
-			'value'=>'$data->fkNac->DescripcionN'//Nombres de la db
+			'value'=>'$data->fkNac0->descripcionN',//Nombres de la db
 		),
 		array(
 			'class'=>'CButtonColumn',

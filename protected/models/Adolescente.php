@@ -75,7 +75,7 @@ class Adolescente extends CActiveRecord
 			'idAdolescente' => 'Cedula',
 			'nombreA' => 'Nombre',
 			'apellidoA' => 'Apellido',
-			'fkNac' => 'Nacionalidad',
+			'fkNac' => 'fkNacionalidad',
 			'Nationality' => 'Nacionalidad',
 		);
 	}
@@ -92,18 +92,18 @@ class Adolescente extends CActiveRecord
 		$criteria=new CDbCriteria;
 		$sort=new CSort;
 
-		$sort->defaultOrder='idAdolescente ASC, fkNac0.DescripcionN ASC';
+		$sort->defaultOrder='idAdolescente ASC, fkNac0.descripcionN ASC';
 		$sort->attributes=array(
 			'idAdolescente'=>array(
 				'asc'=>'idAdolescente ASC,
-						fkNac0.Descripcion ASC',
+						fkNac0.descripcionN ASC',
 				'desc'=>'idAdolescente DESC,
-						fkNac0.DescripcionN ASC',
+						fkNac0.descripcionN ASC',
 			),
 			'Nationality'=>array(
-				'asc'=>'fkNac0.DescripcionN ASC,
+				'asc'=>'fkNac0.descripcionN ASC,
 						idAdolescente ASC',
-				'desc'=>'fkNac0.DescripcionN DESC,
+				'desc'=>'fkNac0.descripcionN DESC,
 						idAdolescente ASC',
 			),
 		);
@@ -114,7 +114,7 @@ class Adolescente extends CActiveRecord
 		$criteria->compare('nombreA',$this->nombreA,true);
 		$criteria->compare('apellidoA',$this->apellidoA,true);
 		$criteria->compare('fkNac',$this->fkNac);
-		$criteria->compare('fkNac0.DescripcionN',$this->Nationality,true);
+		$criteria->compare('fkNac0.descripcionN',$this->Nationality,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -124,6 +124,6 @@ class Adolescente extends CActiveRecord
 
 	public function getMenuNac()
 	{
-		return CHtml::listData(Nacionalidad::model()->findAll(),"idNac","descripcionN");
+		return CHtml::listData(Nacionalidad::model()->findAll(),"idNacionalidad","descripcionN");
 	}
 }
