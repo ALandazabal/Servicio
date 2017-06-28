@@ -26,6 +26,11 @@
 		<?php echo $form->dropDownList($model,'fkAdolescente',$model->getMenuAdolescente(),array("empty"=>"--")); ?>
 		<?php echo $form->error($model,'fkAdolescente'); ?>
 	</div>
+	<div>
+		<?php echo $form->labelEx($model,'fkRol'); ?>
+		<?php echo $form->dropDownList($model,'fkRol',$model->getMenuRol(),array("empty"=>"--")); ?>
+		<?php echo $form->error($model,'fkRol'); ?>
+	</div>
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'btn btn-primary')); ?>

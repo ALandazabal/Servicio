@@ -93,9 +93,9 @@ class Relacion extends CActiveRecord
 		));
 	}
 
-	public function getMenuUsuario()
+	public function getMenuRol()
 	{
-		return CHtml::listData(Usuario::model()->findAll(),"idUsuario","idUsuario");
+		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
 	}
 
 	public function getMenuVisitante()

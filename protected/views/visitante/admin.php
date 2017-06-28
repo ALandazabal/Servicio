@@ -43,8 +43,16 @@ $('.search-form form').submit(function(){
 		'nombreV',
 		'apellidoV',
 		'direccion',
-		'fkMunicipio',
-		'fkNac',
+		//'fkMunicipio',
+		//'fkNac',
+		array(
+			'name'=>'Nationality',
+			'value'=>'$data->fkNac0->descripcionN',
+		),
+		array(
+			'name'=>'Municip',
+			'value'=>'$data->fkMunicipio0->descripcionM',
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

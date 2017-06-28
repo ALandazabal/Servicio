@@ -75,7 +75,7 @@ class Adolescente extends CActiveRecord
 			'idAdolescente' => 'Cedula',
 			'nombreA' => 'Nombre',
 			'apellidoA' => 'Apellido',
-			'fkNac' => 'fkNacionalidad',
+			'fkNac' => 'Nacionalidad',
 			'Nationality' => 'Nacionalidad',
 		);
 	}

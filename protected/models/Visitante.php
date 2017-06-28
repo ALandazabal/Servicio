@@ -23,6 +23,9 @@ class Visitante extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Visitante the static model class
 	 */
+
+	public $Nationality, $Municip;
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -49,7 +52,7 @@ class Visitante extends CActiveRecord
 			array('nombreV, apellidoV, direccion', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'safe', 'on'=>'search'),
+			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +83,8 @@ class Visitante extends CActiveRecord
 			'fkEstado' => 'Estado',
 			'fkMunicipio' => 'Municipio',
 			'fkNac' => 'Nacionalidad',
+			'Nationality' => 'Nacionalidad',
+			'Municip' => 'Municipio',
 		);
 	}
 
@@ -93,6 +98,15 @@ class Visitante extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		/*$sort=new CSort;
+
+		$sort->defaultOrder='idVisitante ASC,
+			fkNac0.descripcionN ASC,
+			fkMunicipio0.descripcionM ASC';
+		$sort->attributes=array(
+			'idVisitante')*/
+
+		$criteria->with = array('fkNac0');
 
 		$criteria->compare('idVisitante',$this->idVisitante);
 		$criteria->compare('nombreV',$this->nombreV,true);
@@ -101,9 +115,12 @@ class Visitante extends CActiveRecord
 		$criteria->compare('fkEstado',$this->fkEstado);
 		$criteria->compare('fkMunicipio',$this->fkMunicipio);
 		$criteria->compare('fkNac',$this->fkNac);
+		$criteria->compare('fkNac0.descripcionN',$this->Nationality,true);
+		$criteria->compare('fkMunicipio0.descripcionM',$this->Municip,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			//'sort'=>$sort,
 		));
 	}
 
@@ -125,6 +142,6 @@ class Visitante extends CActiveRecord
 	}
 	public function getMenuNac()
 	{
-		return CHtml::listData(Nacionalidad::model()->findAll(),"idNac","descripcionN");
+		return CHtml::listData(Nacionalidad::model()->findAll(),"idNacionalidad","descripcionN");
 	}
 }
