@@ -67,6 +67,7 @@ class Visitante extends CActiveRecord
 			'adolescentes' => array(self::MANY_MANY, 'Adolescente', 'relacion(fkVisitante, fkAdolescente)'),
 			'fkMunicipio0' => array(self::BELONGS_TO, 'Municipio', 'fkMunicipio'),
 			'fkNac0' => array(self::BELONGS_TO, 'Nacionalidad', 'fkNac'),
+			'fkEstado0'=>array(self::BELONGS_TO,'Estado', 'fkEstado'),
 		);
 	}
 

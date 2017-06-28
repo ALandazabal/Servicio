@@ -19,6 +19,9 @@ class Relacion extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Relacion the static model class
 	 */
+
+	public $Role;
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -44,7 +47,7 @@ class Relacion extends CActiveRecord
 			array('fkRol, fkVisitante, fkAdolescente', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('fkRol, fkVisitante, fkAdolescente', 'safe', 'on'=>'search'),
+			array('fkRol, fkVisitante, fkAdolescente, Role', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +61,7 @@ class Relacion extends CActiveRecord
 		return array(
 			'visitas' => array(self::HAS_MANY, 'Visita', 'fkRelVte'),
 			'visitas1' => array(self::HAS_MANY, 'Visita', 'fkRelAdol'),
+			'fkRol0'=> array(self::BELONGS_TO, 'Rol','fkRol'),
 		);
 	}
 
@@ -70,6 +74,7 @@ class Relacion extends CActiveRecord
 			'fkRol' => 'Rol',
 			'fkVisitante' => 'Visitante',
 			'fkAdolescente' => 'Adolescente',
+			'Role' => 'Rol',
 		);
 	}
 
@@ -87,6 +92,7 @@ class Relacion extends CActiveRecord
 		$criteria->compare('fkRol',$this->fkRol);
 		$criteria->compare('fkVisitante',$this->fkVisitante);
 		$criteria->compare('fkAdolescente',$this->fkAdolescente);
+		$criteria->compare('fkRol0.descripcionR',$this->Role,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

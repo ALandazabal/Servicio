@@ -19,7 +19,19 @@ $this->menu=array(
 		'nombreV',
 		'apellidoV',
 		'direccion',
-		'fkMunicipio',
-		'fkNac',
+		//'fkMunicipio',
+		//'fkNac',
+		array(
+			'name'=>'fkMunicipio',
+			'value'=>CHtml::encode($model->fkMunicipio0->descripcionM),
+		),
+		array(
+			'name'=>'fkEstado',
+			'value'=>CHtml::encode($model->fkEstado0->descripcionE),
+		),
+		array(
+			'name'=>'fkNac',
+			'value'=>CHtml::encode($model->fkNac0->descripcionN),
+		),
 	),
 )); ?>

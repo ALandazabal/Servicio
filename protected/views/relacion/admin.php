@@ -2,7 +2,7 @@
 /* @var $this RelacionController */
 
 $this->menu=array(
-	array('label'=>'Create Visita', 'url'=>array('create')),
+	array('label'=>'Create Relación', 'url'=>array('create')),
 	array('label'=>'Reporte', 'url'=>array('admin',"reporte"=>1)),
 );
 
@@ -16,12 +16,15 @@ $this->menu=array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'fkRol',
+		//'fkRol',
 		'fkVisitante',
 		'fkAdolescente',
-		
 		array(
+			'name'=>'Role',
+			'value'=>'$data->fkRol0->descripcionR',
+		),		
+		/*array(
 			'class'=>'CButtonColumn',
-		),
+		),*/
 	),
 )); ?>

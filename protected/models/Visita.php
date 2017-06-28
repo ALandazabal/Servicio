@@ -23,6 +23,9 @@ class Visita extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Visita the static model class
 	 */
+
+	
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -46,7 +49,7 @@ class Visita extends CActiveRecord
 		return array(
 			array('fecha, h_entrada, fkUsuario, fkRelVte, fkRelAdol', 'required'),
 			array('fkUsuario, fkRelVte, fkRelAdol', 'numerical', 'integerOnly'=>true),
-			array('h_entrada, h_salida', 'length', 'max'=>6),
+			//array('h_entrada, h_salida', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('fecha, h_entrada, h_salida, fkUsuario, fkRelVte, fkRelAdol', 'safe', 'on'=>'search'),

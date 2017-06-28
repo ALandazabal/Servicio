@@ -19,6 +19,10 @@ $this->menu=array(
 		'idAdolescente',
 		'nombreA',
 		'apellidoA',
-		'fkNac',
+		//'fkNac',
+		array(
+			'name'=>'fkNac',
+			'value'=>CHtml::encode($model->fkNac0->descripcionN),
+		),
 	),
 )); ?>
